@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Home, full scroll</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9DB8FF}a:hover{color:#C3D3FF}
+</style>
+</helmet>
+<div style="width: 412px; min-height: 1760px; box-sizing: border-box; position: relative; background: #0F1012; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif; padding-top: 56px; padding-bottom: 40px">
+
+<section aria-label="Widgets" style="position: relative; height: 236px; margin: 0 16px">
+  <div style="position: absolute; left: 4px; top: 0; width: 230px; display: flex; flex-direction: column; gap: 4px">
+    <div style="font-size: 72px; font-weight: 300; letter-spacing: -0.04em; line-height: 1">10:24</div>
+    <div style="font-size: 15px; color: #9CA1A9">Thursday, 12 November</div>
+  </div>
+  <div style="position: absolute; right: 0; top: 4px; width: 124px; height: 124px; box-sizing: border-box; border-radius: 28px; background: #17191C; padding: 16px; display: flex; flex-direction: column; justify-content: space-between">
+    <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#ECEDEF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18h10a4 4 0 0 0 0-8 5 5 0 0 0-9.6 1.5A3.3 3.3 0 0 0 7 18z"></path></svg>
+    <div style="display: flex; flex-direction: column; gap: 2px">
+      <div style="font-size: 30px; font-weight: 400; letter-spacing: -0.02em">14°</div>
+      <div style="font-size: 12px; color: #9CA1A9">Cloudy · 16° / 9°</div>
+    </div>
+  </div>
+  <div style="position: absolute; left: 0; top: 134px; width: 236px; height: 72px; box-sizing: border-box; border-radius: 22px; background: #17191C; padding: 12px 16px; display: flex; align-items: center; gap: 12px">
+    <div style="width: 4px; align-self: stretch; border-radius: 2px; background: #9DB8FF"></div>
+    <div style="display: flex; flex-direction: column; gap: 2px; min-width: 0">
+      <div style="font-size: 14px; font-weight: 500">Design review</div>
+      <div style="font-family: 'Geist Mono', monospace; font-size: 12px; color: #9CA1A9">11:00 · in 36 min</div>
+    </div>
+  </div>
+  <div style="position: absolute; right: 0; top: 142px; width: 124px; height: 64px; box-sizing: border-box; border-radius: 22px; background: #17191C; padding: 10px 14px; display: flex; flex-direction: column; justify-content: center; gap: 6px">
+    <div style="display: flex; justify-content: space-between; font-size: 12px; color: #9CA1A9"><span>Battery</span><span style="font-family: 'Geist Mono', monospace; color: #ECEDEF">82%</span></div>
+    <div style="height: 6px; border-radius: 3px; background: #2A2E33"><div style="width: 82%; height: 6px; border-radius: 3px; background: #9DB8FF"></div></div>
+  </div>
+</section>
+
+
+<section aria-label="Apps" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 8px; padding: 0 12px; align-items: start">
+  <sc-for list="{{apps}}" as="app" hint-placeholder-count="22">
+    <div style="display: flex; flex-direction: column; align-items: center; gap: 8px; min-width: 0">
+      <button aria-label="Open {{app.name}}" style="width: 60px; height: 60px; border-radius: 20px; border: 0; background: #1F2226; display: flex; align-items: center; justify-content: center; cursor: pointer; padding: 0">
+        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ECEDEF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="{{app.d}}"></path></svg>
+      </button>
+      <span style="font-size: 13px; font-weight: 500; line-height: 1.2; text-align: center">{{app.name}}</span>
+      <div style="display: flex; flex-direction: column; gap: 4px; width: 100%">
+        <sc-for list="{{app.actions}}" as="qa" hint-placeholder-count="1">
+          <button style="height: 34px; width: 100%; box-sizing: border-box; border-radius: 17px; border: 1px solid #2A2E33; background: transparent; color: #C9CDD3; font-family: 'Geist', system-ui, sans-serif; font-size: 12px; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 0 10px; cursor: pointer; white-space: nowrap; overflow: hidden">
+            <svg aria-hidden="true" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9DB8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{qa.d}}"></path></svg>
+            <span>{{qa.label}}</span>
+          </button>
+        </sc-for>
+      </div>
+    </div>
+  </sc-for>
+</section>
+
+<p style="margin: 40px 24px 0; text-align: center; font-size: 12px; line-height: 1.6; color: #80868F">End of apps<br>Long-press an app for all shortcuts · Long-press empty space to edit widgets</p>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":412,"height":1760}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const G = {
+      browser: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M3 12h18 M12 3c2.5 2.5 3.5 5.5 3.5 9s-1 6.5-3.5 9c-2.5-2.5-3.5-5.5-3.5-9s1-6.5 3.5-9z',
+      calculator: 'M6 3h12v18H6z M9 7h6 M9 12h.01 M12 12h.01 M15 12h.01 M9 16h.01 M12 16h.01 M15 16h.01',
+      calendar: 'M4 6h16v14H4z M4 10h16 M8 3v4 M16 3v4',
+      camera: 'M4 8h3l2-3h6l2 3h3v11H4z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z',
+      clock: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 7v5l3 2',
+      contacts: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21a8 8 0 0 1 16 0',
+      files: 'M3 6h6l2 2h10v11H3z',
+      fitness: 'M3 12h4l2-4 3 8 2-4h7',
+      mail: 'M3 6h18v12H3z M3 7l9 6 9-6',
+      maps: 'M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z M12 11.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z',
+      messages: 'M4 5h16v11H8l-4 4z',
+      music: 'M9 18V5l11-2v13 M9 18a3 3 0 1 1-6 0 3 3 0 0 1 6 0z M20 16a3 3 0 1 1-6 0 3 3 0 0 1 6 0z',
+      notes: 'M6 3h9l4 4v14H6z M14 3v5h5 M9 13h7 M9 17h5',
+      phone: 'M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z',
+      photos: 'M4 5h16v14H4z M4 16l5-5 4 4 3-3 4 4',
+      podcasts: 'M12 13a2 2 0 1 0 0-4 2 2 0 0 0 0 4z M12 13v8 M7.5 15.5a6 6 0 1 1 9 0',
+      recorder: 'M12 15a3 3 0 0 0 3-3V6a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3z M6 11a6 6 0 0 0 12 0 M12 17v4',
+      settings: 'M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M12 2v3 M12 19v3 M2 12h3 M19 12h3 M4.9 4.9l2.1 2.1 M17 17l2.1 2.1 M4.9 19.1L7 17 M17 7l2.1-2.1',
+      store: 'M5 8h14l-1 13H6z M9 8a3 3 0 0 1 6 0',
+      translate: 'M4 5h9 M8.5 3v2 M6 5c1 4 4 7 7 8 M11 5c-1 4-4 7-7 8 M13 21l4-10 4 10 M14.5 17.5h5',
+      wallet: 'M3 7h16a2 2 0 0 1 2 2v9H3z M3 7l13-3v3 M16 13h2',
+      weather: 'M7 18h10a4 4 0 0 0 0-8 5 5 0 0 0-9.6 1.5A3.3 3.3 0 0 0 7 18z'
+    };
+    const A = {
+      plus: 'M12 5v14 M5 12h14', video: 'M3 7h12v10H3z M15 10l6-3v10l-6-3', user: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21a8 8 0 0 1 16 0',
+      home: 'M4 11l8-7 8 7v9H4z', work: 'M4 8h16v11H4z M9 8V5h6v3', edit: 'M4 20h4L19 9l-4-4L4 16z', play: 'M7 4l13 8-13 8z',
+      shield: 'M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z', timer: 'M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M12 9v4 M10 2h4',
+      alarm: 'M12 21a8 8 0 1 0 0-16 8 8 0 0 0 0 16z M12 9v4l2 2 M4 4l3-2 M20 4l-3-2', heart: 'M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z',
+      download: 'M12 4v11 M7 10l5 5 5-5 M5 20h14', bolt: 'M13 3L5 13h6l-1 8 8-10h-6z', star: 'M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z',
+      voicemail: 'M6.5 15a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M17.5 15a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z M6.5 15h11', record: 'M12 17a5 5 0 1 0 0-10 5 5 0 0 0 0 10z',
+      wifi: 'M2 9a15 15 0 0 1 20 0 M5.5 12.5a10 10 0 0 1 13 0 M9 16a5 5 0 0 1 6 0 M12 19.5h.01', battery: 'M3 8h15v8H3z M21 11v2', card: 'M3 6h18v12H3z M3 10h18'
+    };
+    const apps = [
+      { name: 'Browser', d: G.browser, actions: [{ label: 'New tab', d: A.plus }, { label: 'Private', d: A.shield }] },
+      { name: 'Calculator', d: G.calculator, actions: [] },
+      { name: 'Calendar', d: G.calendar, actions: [{ label: 'New event', d: A.plus }] },
+      { name: 'Camera', d: G.camera, actions: [{ label: 'Selfie', d: A.user }, { label: 'Video', d: A.video }] },
+      { name: 'Clock', d: G.clock, actions: [{ label: 'Timer', d: A.timer }, { label: 'Alarm', d: A.alarm }] },
+      { name: 'Contacts', d: G.contacts, actions: [{ label: 'New contact', d: A.plus }] },
+      { name: 'Files', d: G.files, actions: [{ label: 'Downloads', d: A.download }] },
+      { name: 'Fitness', d: G.fitness, actions: [{ label: 'Workout', d: A.bolt }] },
+      { name: 'Mail', d: G.mail, actions: [{ label: 'Compose', d: A.edit }] },
+      { name: 'Maps', d: G.maps, actions: [{ label: 'Home', d: A.home }, { label: 'Work', d: A.work }] },
+      { name: 'Messages', d: G.messages, actions: [{ label: 'New chat', d: A.plus }] },
+      { name: 'Music', d: G.music, actions: [{ label: 'Resume', d: A.play }, { label: 'Liked', d: A.heart }] },
+      { name: 'Notes', d: G.notes, actions: [{ label: 'New note', d: A.edit }] },
+      { name: 'Phone', d: G.phone, actions: [{ label: 'Favorites', d: A.star }, { label: 'Voicemail', d: A.voicemail }] },
+      { name: 'Photos', d: G.photos, actions: [] },
+      { name: 'Podcasts', d: G.podcasts, actions: [{ label: 'Resume', d: A.play }] },
+      { name: 'Recorder', d: G.recorder, actions: [{ label: 'Record', d: A.record }] },
+      { name: 'Settings', d: G.settings, actions: [{ label: 'Wi-Fi', d: A.wifi }, { label: 'Battery', d: A.battery }] },
+      { name: 'Store', d: G.store, actions: [] },
+      { name: 'Translate', d: G.translate, actions: [{ label: 'Camera', d: G.camera }] },
+      { name: 'Wallet', d: G.wallet, actions: [{ label: 'Pay', d: A.card }] },
+      { name: 'Weather', d: G.weather, actions: [] }
+    ];
+    return { apps };
+  }
+}
+</script>
+</body>
+</html>

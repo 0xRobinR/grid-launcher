@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Screen switcher styles</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&amp;family=Geist+Mono:wght@400;500&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@500;700&amp;family=Lora:wght@400&amp;family=Inter:wght@400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9DB8FF}a:hover{color:#C3D3FF}
+</style>
+</helmet>
+<div style="width: 412px; height: 1010px; box-sizing: border-box; overflow: hidden; position: relative; background: #0F1012; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif;">
+
+<div style="padding: 44px 16px 24px; display: flex; flex-direction: column; gap: 10px">
+  <div style="padding: 0 4px 6px">
+    <div style="font-size: 12px; letter-spacing: 0.08em; color: #9CA1A9">SETTINGS · SCREENS</div>
+    <h1 style="margin: 6px 0 4px; font-size: 26px; font-weight: 600; letter-spacing: -0.02em">Screen switcher</h1>
+    <div style="font-size: 13px; color: #9CA1A9">The bar at the bottom of home for moving between screens</div>
+  </div>
+  <div style="border-radius: 20px; border: 2px solid #9DB8FF; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Pill</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">Icons; the screen in view shows its name</span><span style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 10px; letter-spacing: 0.12em; color: #9DB8FF">SELECTED</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; gap: 2px; padding: 5px"><span style="height: 44px; padding: 0 11px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z M10 20v-6h4v6"></path></svg></span><span style="height: 44px; padding: 0 14px; border-radius: 22px; background: #9DB8FF; display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1012" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"></path></svg><span style="font-size: 13px; font-weight: 600; color: #0F1012">Work</span></span><span style="height: 44px; padding: 0 11px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M12 12h.01"></path></svg></span><span style="height: 44px; padding: 0 11px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Icons</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">Icons only, a filled circle marks the screen</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; gap: 2px; padding: 5px"><span style="height: 44px; width: 44px; justify-content: center; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11l8-7 8 7v9H4z M10 20v-6h4v6"></path></svg></span><span style="height: 44px; width: 44px; justify-content: center; border-radius: 22px; background: #9DB8FF; display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0F1012" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h16v11H4z M9 8V5h6v3 M4 13h16"></path></svg></span><span style="height: 44px; width: 44px; justify-content: center; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M12 12h.01"></path></svg></span><span style="height: 44px; width: 44px; justify-content: center; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"></path></svg></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Labels</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">Screen names as tabs</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; gap: 2px; padding: 5px"><span style="height: 44px; padding: 0 14px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 500; color: #ECEDEF">Home</span></span><span style="height: 44px; padding: 0 14px; border-radius: 22px; background: #9DB8FF; display: flex; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 600; color: #0F1012">Work</span></span><span style="height: 44px; padding: 0 14px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 500; color: #ECEDEF">Focus</span></span><span style="height: 44px; padding: 0 14px; border-radius: 22px;  display: flex; align-items: center; gap: 8px"><span style="font-size: 13px; font-weight: 500; color: #ECEDEF">Night</span></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Dots</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">The current dot stretches wide</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; height: 42px; padding: 0 10px"><span style="width: 8px; height: 8px; margin: 0 8px; border-radius: 4px; background: #5C626B"></span><span style="width: 24px; height: 8px; margin: 0 8px; border-radius: 4px; background: #9DB8FF"></span><span style="width: 8px; height: 8px; margin: 0 8px; border-radius: 4px; background: #5C626B"></span><span style="width: 8px; height: 8px; margin: 0 8px; border-radius: 4px; background: #5C626B"></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Snake</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">Stretches to the next dot as you swipe</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; padding: 0 10px"><span style="position: relative; display: block; width: 120px; height: 42px"><span style="position: absolute; left: 10.5px; top: 16px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid #5C626B"></span><span style="position: absolute; left: 40.5px; top: 16px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid #5C626B"></span><span style="position: absolute; left: 70.5px; top: 16px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid #5C626B"></span><span style="position: absolute; left: 100.5px; top: 16px; width: 6px; height: 6px; border-radius: 50%; border: 1.5px solid #5C626B"></span><span style="position: absolute; left: 40.5px; top: 16px; width: 27.0px; height: 9px; border-radius: 4.5px; background: #9DB8FF"></span></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Line</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">A marker slides along the segments</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><nav style="display: inline-flex; align-items: center; border-radius: 30px; background: rgba(27,30,34,0.94); border: 1px solid #2A2E33; white-space: nowrap; padding: 0 14px"><span style="position: relative; display: block; width: 138px; height: 42px"><span style="position: absolute; left: 0px; top: 19px; width: 30px; height: 4px; border-radius: 2px; background: #2A2E33"></span><span style="position: absolute; left: 36px; top: 19px; width: 30px; height: 4px; border-radius: 2px; background: #2A2E33"></span><span style="position: absolute; left: 72px; top: 19px; width: 30px; height: 4px; border-radius: 2px; background: #2A2E33"></span><span style="position: absolute; left: 108px; top: 19px; width: 30px; height: 4px; border-radius: 2px; background: #2A2E33"></span><span style="position: absolute; left: 52.199999999999996px; top: 19px; width: 30px; height: 4px; border-radius: 2px; background: #9DB8FF"></span></span></nav></div>
+</div>
+  <div style="border-radius: 20px; border: 1px solid #2A2E33; background: #17191C; padding: 12px 14px 14px; display: flex; flex-direction: column; gap: 10px">
+  <div style="display: flex; align-items: baseline; gap: 8px"><span style="font-size: 15px; font-weight: 600">Off</span><span style="flex: 1; font-size: 12px; color: #9CA1A9">No bar; swipe between screens</span></div>
+  <div style="height: 60px; border-radius: 14px; background: #0F1012; display: flex; align-items: center; justify-content: center"><span style="font-size: 13px; color: #9CA1A9">Swipe only, no bar</span></div>
+</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":412,"height":1010}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

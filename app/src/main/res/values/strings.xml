@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grid Launcher</string>
+    <string name="dots_service_label">Grid Launcher notification dots</string>
+    <string name="gesture_service_label">Grid Launcher gestures</string>
+    <string name="gesture_service_description">Lets Grid Launcher\'s home-screen gestures open notifications or quick settings and lock the screen. It doesn\'t read anything on your screen.</string>
+</resources>

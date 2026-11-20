@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Launcher settings</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9DB8FF}a:hover{color:#C3D3FF}
+</style>
+</helmet>
+<div style="width: 412px; height: 1210px; box-sizing: border-box; overflow: hidden; background: #0F1012; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif; padding: 16px 16px 24px; display: flex; flex-direction: column; gap: 18px">
+
+<header style="display: flex; align-items: center; gap: 8px">
+  <button aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ECEDEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+  </button>
+  <h1 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Launcher settings</h1>
+</header>
+
+<section aria-label="App grid" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">App grid</span>
+  <div style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid #23262B">
+      <div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Quick actions per app</span><span style="font-size: 12px; color: #9CA1A9">Shown under each app label</span></div>
+      <div role="radiogroup" aria-label="Quick actions per app" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: #0F1012">
+        <button role="radio" aria-checked="false" style="height: 40px; border: 0; border-radius: 12px; background: transparent; color: #C9CDD3; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; cursor: pointer">None</button>
+        <button role="radio" aria-checked="false" style="height: 40px; border: 0; border-radius: 12px; background: transparent; color: #C9CDD3; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; cursor: pointer">1</button>
+        <button role="radio" aria-checked="true" style="height: 40px; border: 0; border-radius: 12px; background: #9DB8FF; color: #0F1012; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">2</button>
+      </div>
+    </div>
+    <div style="padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; border-bottom: 1px solid #23262B">
+      <span style="font-size: 15px">Sort apps</span>
+      <div role="radiogroup" aria-label="Sort apps" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px; padding: 4px; border-radius: 16px; background: #0F1012">
+        <button role="radio" aria-checked="true" style="height: 40px; border: 0; border-radius: 12px; background: #9DB8FF; color: #0F1012; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">A–Z</button>
+        <button role="radio" aria-checked="false" style="height: 40px; border: 0; border-radius: 12px; background: transparent; color: #C9CDD3; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; cursor: pointer">Most used</button>
+        <button role="radio" aria-checked="false" style="height: 40px; border: 0; border-radius: 12px; background: transparent; color: #C9CDD3; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; cursor: pointer">Custom</button>
+      </div>
+    </div>
+    <sc-for list="{{gridToggles}}" as="t" hint-placeholder-count="3">
+      <button role="switch" aria-checked="{{t.on}}" style="min-height: 60px; border: 0; background: transparent; color: #ECEDEF; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">{{t.label}}</span><span style="font-size: 12px; color: #9CA1A9">{{t.hint}}</span></span>
+        <span style="width: 48px; height: 28px; border-radius: 14px; background: {{t.track}}; display: flex; align-items: center; justify-content: {{t.justify}}; padding: 0 3px; box-sizing: border-box; flex: none"><span style="width: 22px; height: 22px; border-radius: 11px; background: {{t.knob}}"></span></span>
+      </button>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-label="Screens" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Screens</span>
+  <div style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <button role="switch" aria-checked="true" style="min-height: 60px; border: 0; border-bottom: 1px solid #23262B; background: transparent; color: #ECEDEF; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Phone monitor</span><span style="font-size: 12px; color: #9CA1A9">A live screen to the left of home: battery, network speed, screen time and more</span></span>
+      <span style="width: 48px; height: 28px; border-radius: 14px; background: #9DB8FF; display: flex; align-items: center; justify-content: flex-end; padding: 0 3px; box-sizing: border-box; flex: none"><span style="width: 22px; height: 22px; border-radius: 11px; background: #0F1012"></span></span>
+    </button>
+    <p style="margin: 0; padding: 14px 16px; font-size: 12px; color: #9CA1A9; line-height: 1.5">3 home screens. To add, delete or reorder screens, or choose their apps, long-press empty space on home and tap Screen.</p>
+  </div>
+</section>
+
+<section aria-label="Appearance" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Appearance</span>
+  <div style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <button style="min-height: 56px; border: 0; border-bottom: 1px solid #23262B; background: transparent; color: #ECEDEF; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+      <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">Font</span><span style="font-size: 12px; color: #9CA1A9">From Google Fonts</span></span>
+      <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #9CA1A9">Geist<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+    </button>
+    <sc-for list="{{appearanceToggles}}" as="t" hint-placeholder-count="1">
+      <button role="switch" aria-checked="{{t.on}}" style="min-height: 60px; border: 0; background: transparent; color: #ECEDEF; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">{{t.label}}</span><span style="font-size: 12px; color: #9CA1A9">{{t.hint}}</span></span>
+        <span style="width: 48px; height: 28px; border-radius: 14px; background: {{t.track}}; display: flex; align-items: center; justify-content: {{t.justify}}; padding: 0 3px; box-sizing: border-box; flex: none"><span style="width: 22px; height: 22px; border-radius: 11px; background: {{t.knob}}"></span></span>
+      </button>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-label="Widgets" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Widgets</span>
+  <div style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <sc-for list="{{widgetToggles}}" as="t" hint-placeholder-count="2">
+      <button role="switch" aria-checked="{{t.on}}" style="min-height: 60px; border: 0; background: transparent; color: #ECEDEF; padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">{{t.label}}</span><span style="font-size: 12px; color: #9CA1A9">{{t.hint}}</span></span>
+        <span style="width: 48px; height: 28px; border-radius: 14px; background: {{t.track}}; display: flex; align-items: center; justify-content: {{t.justify}}; padding: 0 3px; box-sizing: border-box; flex: none"><span style="width: 22px; height: 22px; border-radius: 11px; background: {{t.knob}}"></span></span>
+      </button>
+    </sc-for>
+  </div>
+</section>
+
+<section aria-label="More" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">More</span>
+  <div style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <sc-for list="{{links}}" as="l" hint-placeholder-count="2">
+      <button style="min-height: 56px; border: 0; background: transparent; color: #ECEDEF; padding: 10px 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; cursor: pointer; font-family: 'Geist', system-ui, sans-serif; text-align: left">
+        <span style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 15px">{{l.label}}</span><span style="font-size: 12px; color: #9CA1A9">{{l.hint}}</span></span>
+        <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; color: #9CA1A9">{{l.value}}<svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9CA1A9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"></path></svg></span>
+      </button>
+    </sc-for>
+  </div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":412,"height":1210}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const sw = (label, hint, on) => ({
+      label, hint, on: on ? 'true' : 'false',
+      track: on ? '#9DB8FF' : '#2A2E33', knob: on ? '#0F1012' : '#80868F', justify: on ? 'flex-end' : 'flex-start'
+    });
+    return {
+      gridToggles: [
+        sw('Favorites row', 'A row of your favorite apps above the grid', true),
+        sw('Show app labels', 'Name under every icon', true),
+        sw('Themed icons', 'Monochrome icons for apps that support them', true)
+      ],
+      appearanceToggles: [sw('Show wallpaper', 'Off keeps a solid dark background', false)],
+      widgetToggles: [sw('Snap to grid', 'Align widgets on an 8 dp grid', true), sw('Lock layout', 'Stop widgets from being moved or resized', false)],
+      links: [
+        { label: 'Hidden apps', hint: 'Apps you removed from the grid', value: '3' },
+        { label: 'Default home app', hint: 'Choose which launcher opens on Home', value: '' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

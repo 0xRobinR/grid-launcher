@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Font chooser</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&amp;family=Inter:wght@400&amp;family=Manrope:wght@400&amp;family=DM+Sans:wght@400&amp;family=Plus+Jakarta+Sans:wght@400&amp;family=Figtree:wght@400&amp;family=Space+Grotesk:wght@400&amp;family=Lora:wght@400&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9DB8FF}a:hover{color:#C3D3FF}
+</style>
+</helmet>
+<div style="width: 412px; height: 915px; box-sizing: border-box; overflow: hidden; background: #0F1012; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif; padding: 16px 16px 24px; display: flex; flex-direction: column; gap: 16px">
+
+<header style="display: flex; align-items: center; gap: 8px">
+  <button aria-label="Back" style="width: 44px; height: 44px; border-radius: 22px; border: 0; background: transparent; display: flex; align-items: center; justify-content: center; cursor: pointer">
+    <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ECEDEF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"></path></svg>
+  </button>
+  <h1 style="margin: 0; font-size: 22px; font-weight: 600; letter-spacing: -0.01em">Font</h1>
+</header>
+
+<section aria-label="Any Google Fonts family" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Any Google Fonts family</span>
+  <div style="display: flex; gap: 8px; align-items: center">
+    <label for="family" style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Family name</label>
+    <input id="family" placeholder="Family name, e.g. Space Mono" style="flex: 1; min-width: 0; height: 52px; box-sizing: border-box; border-radius: 16px; border: 1px solid #2A2E33; background: transparent; color: #ECEDEF; padding: 0 14px; font-family: 'Geist', system-ui, sans-serif; font-size: 15px">
+    <button style="height: 44px; padding: 0 12px; border: 0; background: transparent; color: #9DB8FF; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; font-weight: 600; cursor: pointer">Apply</button>
+  </div>
+  <span style="padding: 0 4px; font-size: 12px; color: #9CA1A9">Type the name as it appears on fonts.google.com. If it can't be found, the system font is used.</span>
+</section>
+
+<section aria-label="Popular" style="display: flex; flex-direction: column; gap: 8px">
+  <span style="padding: 0 4px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Popular</span>
+  <div role="radiogroup" aria-label="Font" style="border-radius: 22px; background: #17191C; display: flex; flex-direction: column">
+    <sc-for list="{{fonts}}" as="f" hint-placeholder-count="9">
+      <button role="radio" aria-checked="{{f.checked}}" style="min-height: 64px; border: 0; background: transparent; color: #ECEDEF; padding: 10px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer; text-align: left">
+        <span style="flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; font-family: {{f.stack}}">
+          <span style="font-size: 17px">{{f.name}}</span>
+          <span style="font-size: 13px; color: #9CA1A9; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">10:24 · Camera · Maps · Messages</span>
+        </span>
+        <span style="width: 24px; height: 24px; border-radius: 12px; background: {{f.dot}}; display: flex; align-items: center; justify-content: center; flex: none">
+          <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{{f.tick}}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"></path></svg>
+        </span>
+      </button>
+    </sc-for>
+  </div>
+</section>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":412,"height":915}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const names = ['System default', 'Geist', 'Inter', 'Manrope', 'DM Sans', 'Plus Jakarta Sans', 'Figtree', 'Space Grotesk', 'Lora'];
+    return {
+      fonts: names.map((name) => {
+        const on = name === 'Geist';
+        return {
+          name,
+          stack: name === 'System default' ? 'system-ui, sans-serif' : "'" + name + "', system-ui, sans-serif",
+          checked: on ? 'true' : 'false',
+          dot: on ? '#9DB8FF' : '#17191C',
+          tick: on ? '#0F1012' : '#17191C'
+        };
+      })
+    };
+  }
+}
+</script>
+</body>
+</html>

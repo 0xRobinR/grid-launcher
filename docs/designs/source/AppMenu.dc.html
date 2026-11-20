@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>App long-press</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&amp;family=Geist+Mono:wght@400;500&amp;display=swap">
+<style>
+body{margin:0}
+a{color:#9DB8FF}a:hover{color:#C3D3FF}
+</style>
+</helmet>
+<div style="width: 412px; height: 915px; box-sizing: border-box; overflow: hidden; position: relative; background: #0F1012; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif">
+
+<div aria-hidden="true" style="position: absolute; inset: 0; padding: 56px 20px 0; opacity: 0.18; display: flex; flex-direction: column; gap: 6px">
+  <div style="font-size: 72px; font-weight: 300; letter-spacing: -0.04em; line-height: 1">10:24</div>
+  <div style="font-size: 15px">Thursday, 12 November</div>
+</div>
+<div aria-hidden="true" style="position: absolute; inset: 0; background: rgba(5,6,8,0.6)"></div>
+
+<section role="menu" aria-label="Camera options" style="position: absolute; left: 12px; top: 150px; width: 268px; border-radius: 24px; background: #1B1E22; border: 1px solid #2A2E33; padding: 8px; box-sizing: border-box; display: flex; flex-direction: column; box-shadow: 0 18px 40px rgba(0,0,0,0.45)">
+  <div style="padding: 8px 12px 6px; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #9CA1A9">Shortcuts</div>
+  <sc-for list="{{shortcuts}}" as="s" hint-placeholder-count="4">
+    <button role="menuitem" style="height: 48px; border: 0; border-radius: 14px; background: transparent; color: #ECEDEF; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 12px; padding: 0 12px; cursor: pointer; text-align: left">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9DB8FF" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{s.d}}"></path></svg>
+      <span style="flex: 1">{{s.label}}</span>
+      <span style="font-size: 12px; color: #80868F">{{s.pin}}</span>
+    </button>
+  </sc-for>
+  <div style="height: 1px; background: #2A2E33; margin: 6px 4px"></div>
+  <sc-for list="{{actions}}" as="a" hint-placeholder-count="3">
+    <button role="menuitem" style="height: 48px; border: 0; border-radius: 14px; background: transparent; color: {{a.color}}; font-family: 'Geist', system-ui, sans-serif; font-size: 14px; display: flex; align-items: center; gap: 12px; padding: 0 12px; cursor: pointer; text-align: left">
+      <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="{{a.color}}" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{a.d}}"></path></svg>
+      <span>{{a.label}}</span>
+    </button>
+  </sc-for>
+</section>
+
+<div style="position: absolute; left: 12px; top: 640px; width: 124px; box-sizing: border-box; padding: 12px 6px; border-radius: 24px; background: #17191C; border: 1px solid #3A3F46; display: flex; flex-direction: column; align-items: center; gap: 8px; transform: scale(1.04); box-shadow: 0 14px 30px rgba(0,0,0,0.5)">
+  <div style="width: 60px; height: 60px; border-radius: 20px; background: #262A2F; display: flex; align-items: center; justify-content: center">
+    <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ECEDEF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4z M12 17a4 4 0 1 0 0-8 4 4 0 0 0 0 8z"></path></svg>
+  </div>
+  <span style="font-size: 13px; font-weight: 500">Camera</span>
+  <div style="display: flex; flex-direction: column; gap: 4px; width: 100%">
+    <div style="height: 34px; border-radius: 17px; border: 1px solid #9DB8FF; font-size: 12px; display: flex; align-items: center; justify-content: center; color: #C9CDD3">Selfie</div>
+    <div style="height: 34px; border-radius: 17px; border: 1px solid #9DB8FF; font-size: 12px; display: flex; align-items: center; justify-content: center; color: #C9CDD3">Video</div>
+  </div>
+</div>
+
+<div style="position: absolute; left: 152px; right: 16px; top: 676px; display: flex; flex-direction: column; gap: 6px; font-size: 13px; line-height: 1.45; color: #C9CDD3">
+  <div style="display: flex; align-items: center; gap: 8px">
+    <svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#9DB8FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18 M3 12h18 M9 6l3-3 3 3 M9 18l3 3 3-3 M6 9l-3 3 3 3 M18 9l3 3-3 3"></path></svg>
+    <span>Drag to reorder</span>
+  </div>
+  <span style="color: #9CA1A9">Pinned shortcuts show under the label. Tap a pin to choose which 2 appear.</span>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":412,"height":915}}'>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      shortcuts: [
+        { label: 'Selfie', pin: 'Pinned', d: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8z M4 21a8 8 0 0 1 16 0' },
+        { label: 'Video', pin: 'Pinned', d: 'M3 7h12v10H3z M15 10l6-3v10l-6-3' },
+        { label: 'Portrait', pin: '', d: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 8v8 M8 12h8' },
+        { label: 'Scan document', pin: '', d: 'M4 8V4h4 M16 4h4v4 M20 16v4h-4 M8 20H4v-4 M7 12h10' }
+      ],
+      actions: [
+        { label: 'App info', color: '#ECEDEF', d: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18z M12 11v5 M12 8h.01' },
+        { label: 'Hide from grid', color: '#ECEDEF', d: 'M3 3l18 18 M10.6 6.2A9.8 9.8 0 0 1 12 6c5 0 9 6 9 6a17 17 0 0 1-2.6 3.2 M6.6 6.6C4.3 8.2 3 12 3 12s4 6 9 6a9 9 0 0 0 4.4-1.2' },
+        { label: 'Uninstall', color: '#FF9C8F', d: 'M4 7h16 M9 7V4h6v3 M6 7l1 13h10l1-13' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>
